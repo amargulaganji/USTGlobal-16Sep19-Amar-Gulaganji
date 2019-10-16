@@ -1,0 +1,8 @@
+<div>
+<input type="text" name="search" id="search" class="col-md-4 offset-4 mt-5 mb-5" placeholder="Search Movie here..." [(ngModel)]="value" (keyup)="searchMovie()">
+</div>
+<div class="col-md-3 float-left card card-body" *ngFor="let movie of movies">
+    <h3>{{movie.Title}}</h3>
+    <img src="{{movie.Poster}}" alt="">
+    
+</div>
