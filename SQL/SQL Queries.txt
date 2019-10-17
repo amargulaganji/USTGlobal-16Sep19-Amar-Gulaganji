@@ -1,0 +1,201 @@
+----------------------------DDL-------------------
+
+create database database_name;
+show databases;
+use database_name;
+show tables;
+
+create table products(pid int, pname varchar(20),quantity int);
+
+
+
+Logical Operators
+-----------AND---------------
+Q. to display employee details who is working in deptno=20 as well as salary>20000
+select * from employee where deptno=20 and salary>20000;
+
+Q. to display employee details whose age is more than 25 and bloodgroup is b+ve;
+ select * from employee where age>25 and bloodgroup='b +ve';
+
+
+---------OR-------------------
+Q. all details of employee who is working as tester or having slaary more than 30000
+select * from employee where designation='tester' or salary>30000;
+
+
+Q display name, sal, age from employee table who is working in deptno 10 or 40 or 50
+select ename,salary,age from employee where deptno=10 or deptno=40 or deptno=50;
+
+
+---------NOT----------
+Q. write a query to display all the record of the empkoyees excluding tester
+select * from employee where not designation='tester';
+select * from employee where designation!='tester';
+select * from employee where designation<>'tester';
+
+
+Q. write a query to display name of all employee who is working as hr or tester and salary>40000
+select ename from employee where designation='hr' or designation='tester' and salary>40000;
+
+
+Q. write a query to display all the employee excluding developer who is working in deptno 20
+select * from employee where deptno=20 and not designation='developer';
+
+
+---------------------
+Examples: 
+
+Q. write a query to display all the developer who are working for deptno 10, or 40
+select * from employee where deptno=10 or deptno=40 and designation='developer';
+
+
+Special Operators:
+
+---In----
+Q. write a query to display all the detail of employee working in deptno 40,50,70,20
+select * from employee where deptno in (20,40,50,70,80);
+
+Q. write aquery to display name of all the employees who is working as tester hr admin
+select * from employee where designation in ('tester','hr','admin');
+
+
+Q. write a query to display detail of tester admin developer who are working in deptno20 or 30 and salary is >40000
+select * from employee where designation in ('tester','admin','developer') and deptno in (20,30) and salary>40000;
+
+-----not in------
+Q. write a query to display all the detail of employee working in all deptno expect 40,20
+select * from employee where deptno not in (20,40);
+
+Q. write a query to display all the detail of employee who is working expect tester admin hr
+select * from employee where designation not in ('tester','admin','hr');
+
+
+Q. write a query to display all the record of employees whose age is 20 25,30,40 exclude all the detail of tester and developer
+select * from employee where age in(20,25,30,40) and designation not in ('developer','tester');
+
+
+----------between-------------
+Q. write a query to display all the employee deatils whose age is between 20 to40
+select * from employee where age between 20 and 40;
+
+Q. write query to display all the detail of employee who hired during 2017
+select * from employee where doj between '2017-01-01' and '2017-12-31';
+
+Q. write a query to display all the records of employee excluding in reage of 25000 to 30000
+select * from employee where salary not between 25000 and 30000;
+
+
+------------------Is------------------
+select * from table_name where column_name is null;
+
+
+
+
+LIKE-----------------
+select 8 from table_name where column_name Like'%/_';
+
+Q. write a query to display all the detail of employee whose name starts with a
+select * from employee where ename like 'a%';
+
+
+Q. write a query to display name of employee whose second character is i
+select * from employee where ename like '_i%';
+
+Q write a query to display name ofEmployee which has two has atleast two l in there name
+select * from employee where ename like '%l%l%';
+
+Q write a query to display the name of employee whose name starts with s and ends with p
+select * from employee where ename like 's%p';
+
+Q write a query to display all the records of employee if employee name begins with a or s
+select * from employee where ename like 'a%' or ename like 's%';
+
+to display emp name whose working in dept no 10,20,30 and designation starts with s
+select ename from employee where deptno in (10,20,30) and designation like 'd%';
+
+
+
+
+-----------Functions------------
+----------1. Multi row functions (Aggregate Functions)-------
+
+select sum(salary) from employee;
+
+select avg(salary) from employee;
+
+select min(salary) from employee;
+
+select max(salary) from employee;
+
+select count(*) from employee;
+
+
+
+Q. writea query to display all the details of employee and salary should be arranged in descending order
+select * from employee order by salary desc;
+
+
+
+create table department(deptno int, deptname varchar(60), deptloc varchar(60),primary key(deptno));
+
+
+
+insert into department values(10,'admin','bangalore');
+insert into department values(20,'operation','mumbai');
+insert into department values(30,'maintainance','delhi');
+insert into department values(40,'development','pune');
+
+
+----------SubQuery--------------
+----single row subQuery-------------------------
+Q. write  aquery to get all the record of employee whose doj is same as akash
+select * from employee where doj=(select doj from employee where ename='akash');
+
+
+Q. write a query to display the second max salary
+select max(salary) as second_max from employee where salary<(select max(salary) from employee);
+
+Q. write a query to display name of employee who is working in location which has atleast one a in location
+seelct enmae from employee where deptno in (select deptno from department where deptloc like '%a%');
+
+
+Q. write a query to display all the record of employee who is working in admin, operation, development
+select * from employee where deptno in (select deptno from department where deptname in ('admin','operation','development'));
+
+
+--------------groupby------------
+
+write qa query to display max salary for each dept
+select deptno,count(*) as no_emp,max(salary ) from employee group by deptno;
+
+write a query to display highest salary given to hr for each dept
+select deptno,max(salary) from employee where designation='hr' group by deptno;
+ 
+-----------having-------------
+write a query to display deptno which has atleast two employees working
+select deptno from employee group by deptno having count(*)>2;
+
+-------------------------Joins--------------------------------
+
+-----------Cross join---------------
+select * from employee cross join department;
+
+
+------------Inner Join---------------------
+select * from employee e inner join department d on d.deptno=e.deptno; 
+in Oracle,
+select * from employee e,department d where e.deptno=d.deptno;
+
+
+------------Outer join--------------
+-----left outer join------------
+select * from employee e left outer join department d on d.deptno=e.deptno;
+
+-----right outer join-------------
+select * from employee e right outer join department d on d.deptno=e.deptno;
+
+-----full outer join-----------
+select * from employee e full outer join department d on d.deptno=e.deptno;
+
+-------natural join---
+select * from employee natural join department;
