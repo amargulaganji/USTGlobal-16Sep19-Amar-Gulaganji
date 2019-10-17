@@ -1,0 +1,75 @@
+<form action="" class="col-md-6 offset-3 mt-5 mb-5 card card-body " #form3="ngForm" (ngSubmit)="registerData(form3)">
+    <h1 class="text-center bg-dark text-white">Form-3</h1>
+    <div class="form-group">
+        <input type="text" name="username" id="username" class="form-control" placeholder="User Name" #username="ngModel" ngModel required>
+        <div *ngIf="username.touched && username.invalid">
+            <p class="alert alert-danger" *ngIf="username.errors.required" class="text-danger">*this field is required</p>
+            
+        </div>
+    
+    </div>
+    <div class="form-group">
+        <input type="text" name="age" id="age" class="form-control" placeholder="User Age" #age="ngModel" ngModel required>
+        <div *ngIf="age.touched && age.invalid">
+            <p class="alert alert-danger" *ngIf="age.errors.required" class="text-danger">This field is required</p>
+        </div>
+    </div>
+    
+<!-- Group of material radios - option 1 -->
+<p>Gender</p>
+<div class="form-check">
+    <input type="radio" class="form-check-input" id="materialGroupExample1" name="groupOfMaterialRadios">
+    <label class="form-check-label" for="materialGroupExample1">Male</label>
+  </div>
+  
+  <!-- Group of material radios - option 2 -->
+  <div class="form-check">
+    <input type="radio" class="form-check-input" id="materialGroupExample2" name="groupOfMaterialRadios" checked>
+    <label class="form-check-label" for="materialGroupExample2">Femlae</label>
+  </div>
+  
+  <!-- Group of material radios - option 3 -->
+  <div class="form-check">
+    <input type="radio" class="form-check-input" id="materialGroupExample3" name="groupOfMaterialRadios">
+    <label class="form-check-label" for="materialGroupExample3">Other</label>
+  </div>
+
+  <div class="form-group">
+    <input type="email" name="email" id="email" class="form-control" placeholder="Enter Email..." #email="ngModel" ngModel required minlength="6">
+    <div *ngIf="email.touched && email.invalid">
+        <p class="alert alert-danger" *ngIf="email.errors.required" class="text-danger">*this field is required</p>
+        <p class="alert alert-danger" *ngIf="email.errors.minlength">*minimum length is 6</p>
+    </div>
+</div>
+<div class="form-group">
+    <input type="tel" name="contact" id="contact" class="form-control" placeholder="Contact No." #contact="ngModel" ngModel required>
+    <div *ngIf="contact.touched && contact.invalid">
+        <p class="alert alert-danger" *ngIf="contact.errors.required" class="text-danger">*this field is required</p>
+        
+    </div>
+
+</div>
+
+<div class="form-group">
+    <input type="password" name="password" id="password" class="form-control" placeholder="Enter Password..." #password="ngModel" ngModel required minlength="6">
+    <div *ngIf="password.touched && password.invalid">
+        <p class="alert alert-danger" *ngIf="password.errors.required" class="text-danger">This field is required</p>
+        <p class="alert alert-danger" *ngIf="password.errors.minlength">*minimum length is 6</p>
+
+    </div>
+</div>
+<div class="form-group">
+    <input type="rpassword" name="rpassword" id="rpassword" class="form-control" placeholder="Retype Password..." #rpassword="ngModel" ngModel required minlength="6">
+    <div *ngIf="rpassword.touched && rpassword.invalid">
+        <p class="alert alert-danger" *ngIf="rpassword.errors.required" class="text-danger">This field is required</p>
+        <p class="alert alert-danger" *ngIf="rpassword.errors.minlength">*minimum length is 6</p>
+
+    </div>
+</div>
+    
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-outline-success float-right" [disabled]="form3.invalid">Add User</button>
+    </div>
+    
+</form>

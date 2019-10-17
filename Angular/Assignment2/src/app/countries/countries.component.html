@@ -1,0 +1,12 @@
+<div class=" col-md-4 offset-4 form-group mt-2 mb-2">
+      <select class="form-control" id="sel" (click)="getCNews(value)" [(ngModel)]="value">
+      <option value="in">India</option>
+      <option value="us">US</option>
+      <option value="ru">Russia</option>
+      <option value="ua">Dubai</option>
+    </select>
+  </div>
+  <div class="col-md-3 card card-body float-left align-items-center" style="height:350px;" *ngFor="let new of cnews">
+      <a href="{{new.url}}"><img src="{{new.urlToImage}}" style="height: 250px; width: 300;" alt=""></a>
+    <h2 style="font-size: 15px;">{{new.title}}</h2>
+  </div>

@@ -1,0 +1,24 @@
+    <div class="col-md-3 float-left">
+        <h5 class="text-center">Entertainment News</h5>
+    <div class=" col-md-12 card card-body align-items-center" *ngFor="let new1 of enews">
+        <a href="{{new1.url}}"><img src="{{new1.urlToImage}}"  style="width: 300px;" alt=""></a>
+        <h2 style="font-size: 20px;">{{new1.title}}</h2>
+      </div>
+    </div>
+    <div class="col-md-6 float-left">
+            <h5 class="text-center">Top News From India</h5>
+
+    <div class="col-md-12  card card-body align-items-center" *ngFor="let new2 of hnews">
+        <a href="{{new2.url}}"><img src="{{new2.urlToImage}}"  style="width: 600px;" alt=""></a>
+        <h2>{{new2.title}}</h2>
+      </div>
+    </div>
+    <div class="col-md-3 float-left">
+            <h5 class="text-center">Sports News</h5>
+      <div class=" col-md-12  card card-body align-items-center" *ngFor="let new3 of snews">
+        <a href="{{new3.url}}"><img src="{{new3.urlToImage}}" style="width: 300px;" alt=""></a>
+        <h2 style="font-size: 20px;">{{new3.title}}</h2>
+      </div>
+    </div>
+
+

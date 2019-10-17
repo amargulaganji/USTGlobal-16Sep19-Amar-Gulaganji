@@ -1,0 +1,11 @@
+<div class=" col-md-4 offset-4 form-group mt-2 mb-2">
+       <input class=" form-control float-left mr-1" style="width: 250px;" type="text" name="search" id="search" [innerText]="search" [(ngModel)]="search">
+       <button class="btn btn-primary" type="submit" (click)="getCNews()">search</button>
+      
+    </div>
+
+
+<div class="col-md-3 card card-body float-left align-items-center" style="height:350px;" *ngFor="let new of cnews">
+  <a href="{{new.url}}"><img src="{{new.urlToImage}}"  style="height: 250px; width: 300;" alt=""></a>
+  <h2 style="font-size: 15px;">{{new.title}}</h2>
+</div>
