@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form</title>
+</head>
+<body>
+    <form action="">
+        <label for="name">Name :</label><br>
+        <input type="text" name="name" id="name" placeholder="Enter Name" required><br>
+        <label for="email">Email :</label><br>
+        <input type="email" name="email" id="email" placeholder="Enter Email" required><br>
+        <label for="mobile">Mobile :</label><br>
+        <input type="tel" name="mobile" id="mobile" placeholder="Enter Mobile Number" pattern="[6|7|8|9][0-9]{9}" required><br>
+        <label for="gender">Gender :</label><br>
+        <input type="radio" name="gender" id="male">Male
+        <input type="radio" name="gender" id="female">Female
+        <input type="radio" name="gender" id="other">Other <br>
+        <label for="month">Joining Month :</label>
+        <select name="month" id="month">
+            <option value="0" disabled>Select</option>
+            <option value="jan">Jan</option>
+            <option value="feb">Feb</option>
+            <option value="mar">Mar</option>
+
+        </select><br>
+        <input type="checkbox" name="iagree" id="iagree" required>
+        <label for="iagree">I agree</label>
+        <br>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button> <br>
+        
+
+
+        
+        
+<!--         
+        Name <input type="text"><br>
+        Email <input type="email"><br>
+        Mobile <input type="tel"><br>
+        Gender <input type="radio" name="Male" id="">Male
+         <input type="radio" name="Female" id="">Female
+         <input type="radio" name="Other" id="">Other<br>
+        Joining Month input<br>
+        <input type="checkbox" name="I agree" id=""><br>
+        <button type="submit" name="Submit"></button> 
+        <button type="reset" name="Reset"></button> -->
+    </form>
+</body>
+</html>
