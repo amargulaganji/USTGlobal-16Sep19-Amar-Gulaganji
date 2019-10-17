@@ -1,0 +1,43 @@
+ul[class="nav justify-content-center bg-dark"]{
+    height: 50px;
+    font-size: 20px;
+}
+img[class=" d-block rounded-circle float-left "]{
+    height: 400px;
+    margin-top: 50px;
+    
+}
+h1[id="names"]{
+    margin-left: 600px; 
+    margin-top: 100px;
+}
+p[id="desc"]{
+    margin-left: 580px;
+    margin-top: 10px;
+}
+button[id="learnabout"]{
+    width: 178px;
+    height: 46px;
+    border-collapse: collapse;
+    border: none;
+    background-color: rgb(70, 70, 230);
+    border-radius: 10px;
+}
+div[class="b"]{
+    margin-top: 200px;
+    margin-left: 450px;
+}
+div[class="col-sm-3 "]{
+    margin-left: 70px;
+}
+/* button[id="somework"]{
+
+    width: 228px;
+    height: 46px;
+    border-collapse: collapse;
+    border: none;
+    background-color: rgb(70, 70, 230);
+    border-radius: 10px;
+    margin-top: 150px;
+    margin-left:none;
+} */
